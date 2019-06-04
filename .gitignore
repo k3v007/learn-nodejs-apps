@@ -2,7 +2,7 @@
 /*/node_modules
 
 # notes-cli-app notes
-/notes-cli-app/notes.json
+/notes-app-cli/notes.json
 
 # .env 
 /*/.env
