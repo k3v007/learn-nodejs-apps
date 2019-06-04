@@ -54,13 +54,14 @@ inquirer
                 ])
                 .then(answer => {
                     index = answer.results[0] - 1
-                    getWeather(locations[index].coordinates, unit, (error, {temperature, summary} = {}) => {
+                    getWeather(locations[index].coordinates, unit, (error, {temperature, summary, precipProbability} = {}) => {
                         if (error){
                             return console.log(chalk.redBright(error))
                         }
                         console.log(chalk.magenta("\nLocation: ") + locations[index].place_name);
                         console.log(chalk.magenta("Temperature: ") + temperature + " " + unit)
                         console.log(chalk.magenta("Summary: ") + summary)
+                        console.log(chalk.magenta("Precipitation Probability: ") + (precipProbability * 100)+ " %")
                     })
                 })
         })
