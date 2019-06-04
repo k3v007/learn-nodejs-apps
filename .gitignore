@@ -1,2 +1,5 @@
 # node modules
 /*/node_modules
+
+# notes-cli-app notes
+/notes-cli-app/notes.json
