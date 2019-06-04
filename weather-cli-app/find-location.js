@@ -4,7 +4,7 @@ results = []
 
 findCoordinates = (location, callback) => {
     location = location.split(' ').join('%20');
-    const locationURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${process.env.MAPBOX_TOEKN}`;
+    const locationURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${process.env.MAPBOX_TOKEN}`;
 
     request({
         method: 'GET',
