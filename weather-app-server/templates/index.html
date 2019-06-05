@@ -19,8 +19,35 @@
         <h1>Weather App</h1>
         <hr>
         <div id="map"></div>
+        <div id="weather">
+            <img id="loading" src="/img/loading.gif" alt="Loading...">
+            <div id="report">
+                <div>
+                    <h2>Wednesday, 2:28 pm</h3>
+                    <h3>Haze</h3>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div id="temperature">
+                            <img id="weather-img" src="/img/darksky-icons/partly-cloudy-day.png" alt="Not found">
+                            <span><span>25</span><sup style="font-size:25px; font-weight:normal">°C</sup></span>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div id="details">
+                            <h4>Precipitation:&nbsp<span>0</span>%</h4>
+                            <h4>Humidity:&nbsp<span>0</span>%</h4>
+                            <h4>Wind:&nbsp<span>0</span>&nbspkm/h</h4>    
+                        </div>                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
     
+    <!-- Moment script -->
+    <script src="/js/moment/moment.min.js"></script>
     <!-- Mapbox scripts -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.min.js'></script>

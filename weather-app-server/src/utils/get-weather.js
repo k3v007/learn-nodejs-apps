@@ -1,16 +1,15 @@
-const request = require("request")
+const request = require('request')
 
 
-const getWeather = (coord, unit = "°C", callback) => {
-    const lon = coord[0]
-    const lat = coord[1]
+const getWeather = (coord, unit = '°C', callback) => {
+    const lng = coord.lng
+    const lat = coord.lat
     var weatherURL
-    if (unit == "°C") {
-        weatherURL = `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${lat},${lon}?units=si`;
-    }else {
-        weatherURL = `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${lat},${lon}`;
+    if (unit == '°C') {
+        weatherURL = `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${lat},${lng}?units=si`;
+    } else {
+        weatherURL = `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${lat},${lng}`;
     }
-    
 
     request({
         method: 'GET',
@@ -19,17 +18,11 @@ const getWeather = (coord, unit = "°C", callback) => {
     },
         (error, response, body) => {
             if (error) {
-                callback("Unable to connect to Weather services!", undefined)
+                callback('Unable to connect to Weather services!', undefined)
             } else if (response.statusCode != 200) {
-                callback(body.error, undefined)
+                callback(body.error, undefined);
             } else {
-                report = {
-                    temperature: body.currently.temperature,
-                    summary: body.currently.summary,
-                    icon: body.currently.icon,
-                    precipProbability: body.currently.precipProbability
-                }
-                callback(undefined, report)
+                callback(undefined, body.currently);
             }
         })
 }
